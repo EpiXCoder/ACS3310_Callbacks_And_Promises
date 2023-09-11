@@ -7,6 +7,13 @@ function asyncNumberChecker(n) {
         resolve('I can work with this!')
       }
     }, 3333);
+  })
+  .then((message) => {
+    console.log('Promise resolved! 😀');
+    console.log(message);
+  }).catch((err) => {
+    console.log('Promise rejected! 😞');
+    console.log(err);
   });
 }
 
