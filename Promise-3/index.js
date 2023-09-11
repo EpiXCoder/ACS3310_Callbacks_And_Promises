@@ -30,16 +30,31 @@ function uppercaser(str) {
 // When chained all of the promises have to resolve for success. 
 // If any of the promises reject then you end in the catch block. 
 
-greet('Your name') // Returns a Promise
+greet('string') // Returns a Promise
   .then(str => uppercaser(str))  // Upper case the results from greet() Returns a Promise
   .then(str => console.log(str)) // Log the results of uppercaser()
   .catch(err => console.log(err)) // Catches an error
 
+
+  greet(5) // Returns a Promise
+  .then(str => uppercaser(str))  // Upper case the results from greet() Returns a Promise
+  .then(str => console.log(str)) // Log the results of uppercaser()
+  .catch(err => console.log(err)) // Catches an error
+
+uppercaser(5)
+  .then(str => console.log(str))
+  .catch(err => console.log(err))
+
 // Challenges: get greet() to fail by passing a non string value
 // What happens? 
+  // Promise is rejected and error message is displayed.
 
 // Challenge: get uppercaser() to fail by passing a non string value
 // What happens? 
+  // Promise is rejected and error message is displayed.
 
 // Challenge: Notice there is only a single .catch() at the end. 
 // Explain the behavior?
+  // You can chain functions that return a promise. 
+  // When chaining promises if any promise along the way rejects, 
+  // all of the promises reject and you skip the catch callback.
